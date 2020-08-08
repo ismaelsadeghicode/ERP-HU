@@ -1,0 +1,17 @@
+server:
+  port: 8069
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8061/eureka/
+
+spring:
+  profiles:
+    active: native
+
+zuul:
+  routes:
+    basic-info:
+      path: /customer/**
+      serviceId: customer-sevice
