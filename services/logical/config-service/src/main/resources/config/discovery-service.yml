@@ -8,7 +8,4 @@ eureka:
     fetch-registry: false
     serviceUrl:
       defaultZon: http://${eureka.instance.hostname}:${server.port}/eureka/
-spring:
-  profiles:
-    active: native
 

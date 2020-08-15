@@ -7,17 +7,15 @@ eureka:
       defaultZone: http://localhost:8061/eureka/
 
 spring:
-  profiles:
-    active: native
   cloud:
     gateway:
       discovery:
         locator:
           enabled: true
       routes:
-        - id: customer-service
-          uri: lb://customer-service
-          predicates:
-          - Path=/customer/**
-          filter:
-          - RewritePath=//customer/(?<path>.*), /customer/$\{path}
+      - id: customer-service
+        uri: lb://customer-service
+        predicates:
+        - Path=/customer/**
+        filter:
+        - RewritePath=/customer/(?<path>.*), /$\{path}
